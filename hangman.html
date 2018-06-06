@@ -26,6 +26,7 @@
 </div>
 </div>
 <script>
+    //I guess I'll put the link here: https://szsaunders.github.io/Bootstrap_Portfolio/portfolio.html
     var wordList = {
         "names":["Bach", "Beethoven","Tchaikovsky","Chopin","Berlioz", "Sousa"],
         "music":["assets/audio/Bach.flac","assets/audio/Beethoven.mp3","assets/audio/MarcheSlave.mp3","assets/audio/Chopin.mp3","assets/audio/Berlioz.mp3", "assets/audio/Sousa.mp3"]
@@ -51,18 +52,18 @@
     document.onkeyup = function(event) {
         console.log("hangWordChecker" + hangWordChecker.indexOf(event.key));
         console.log("handWord" + hangWord.indexOf(event.key));
-        guessKeeper += event.key;
         if (event.key.length != 1) {
             
         }
         
         else if ((hangWord.indexOf(event.key) == -1) && (hangWord.indexOf(event.key.toUpperCase()) == -1)) {
             guesses -= 1;
+            guessKeeper += event.key;
             document.getElementById("remainingGuesses").innerHTML = "Guesses remaining: " + guesses;
             document.getElementById("failures").innerHTML = "Used letters: " + guessKeeper;
         }
         else {
-
+            guessKeeper += event.key;
             if (hangWord.indexOf(event.key.toUpperCase()) == 0) {
                 console.log("Check")
             hangBlank = event.key.toUpperCase() + hangBlank.slice(1, hangWord.length);
